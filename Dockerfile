@@ -1,23 +1,24 @@
-# Basis-Image mit Python
+# Basis-Image
 FROM python:3.10-slim
 
-# Arbeitsverzeichnis im Container erstellen
+# Arbeitsverzeichnis im Container festlegen
 WORKDIR /app
 
-# System-Tools installieren
+# System-Abhängigkeiten installieren
 RUN apt-get update && apt-get install -y \
     build-essential \
+    curl \
+    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
 
-# Abhängigkeiten installieren
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Den gesamten Code kopieren
+# Dateien kopieren (Punkt bedeutet: alles aus lokalem Ordner nach /app)
 COPY . .
 
-# Port für Streamlit öffnen
+# Python-Bibliotheken installieren
+RUN pip3 install -r requirements.txt
+
+# Port für Streamlit
 EXPOSE 8501
 
-# Startbefehl
-CMD ["streamlit", "run", "Pflanzen_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Startbefehl (Wichtig: Der Pfad muss stimmen!)
+ENTRYPOINT ["streamlit", "run", "Pflanzen_app.py", "--server.port=8501", "--server.address=0.0.0.0"]
