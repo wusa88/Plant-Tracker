@@ -10,9 +10,9 @@ DB_FILE = "pflanzen_db.json"
 BERLIN_TZ = pytz.timezone('Europe/Berlin')
 
 MQTT_BROKER = "MQTT-Broker-IP"
-MQTT_PORT = PORT 
-MQTT_USER = "USERNAME"
-MQTT_PASS = "PASWWORD"
+MQTT_PORT = <PORT>
+MQTT_USER = "<USERNAME>"
+MQTT_PASS = "<PASWWORD>"
 
 # --- FUNKTIONEN ---
 def load_data():
