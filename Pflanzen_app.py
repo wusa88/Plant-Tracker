@@ -9,10 +9,10 @@ import paho.mqtt.publish as publish
 DB_FILE = "pflanzen_db.json"
 BERLIN_TZ = pytz.timezone('Europe/Berlin')
 
-MQTT_BROKER = "MQTT-Broker-IP"
-MQTT_PORT = <PORT>
-MQTT_USER = "<USERNAME>"
-MQTT_PASS = "<PASWWORD>"
+MQTT_USER = os.getenv('MQTT_USER', 'standard_user')
+MQTT_PASS = os.getenv('MQTT_PASS', 'standard_pass')
+MQTT_SERVER = os.getenv('MQTT_SERVER', 'localhost')
+MQTT_PORT = int(os.getenv('MQTT_PORT', 1883))
 
 # --- FUNKTIONEN ---
 def load_data():
