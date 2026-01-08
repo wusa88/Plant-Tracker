@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  pflanzen-app:
+    build: .
+    container_name: pflanzen-tracker
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+    restart: unless-stopped
