@@ -1,0 +1,4 @@
+pflanzen_db.json
+img_*.jpg
+__pycache__/
+.env
